@@ -2,13 +2,26 @@ import React from 'react';
 import Login from './Login';
 import Dashboard from './Dashboard';
 import useLocalStorage from '../hooks/useLocalStorage';
+import { ContactsProvider } from '../contexts/ContactsProvider';
+import { ChatsProvider } from '../contexts/ChatsProvider';
 
 function App() {
-  const [user, setUser] = useLocalStorage('user')
+  const [id, setId] = useLocalStorage('id')
+
+  const dashboard = (
+    <ContactsProvider>
+      <ChatsProvider>
+        <Dashboard id={id} />
+      </ChatsProvider>
+    </ContactsProvider>
+  )
 
   return (
     <div className="main">
-        {user ? <Dashboard user={user} setUser={setUser} /> : <Login userLogin={setUser}/> }
+        {id ? 
+        dashboard
+        : 
+        <Login userLogin={setId}/> }
     </div>
   );
 }

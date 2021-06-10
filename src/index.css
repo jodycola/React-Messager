@@ -1,15 +1,15 @@
-.dashboard {
+/* .dashboard {
     display: flex;
     height: 100%;
-}
+} */
 
-.sidebar {
+/* .sidebar {
     display: flex;
     flex-direction: column;
     width: 250px;    
-}
+} */
 
-.sidebar-button {
+/* .sidebar-button {
     position: fixed;
     bottom: 0%;
-}
+} */
